@@ -1,0 +1,12 @@
+.stream-card {
+  border: darkblue;
+  margin: 2px;
+}
+
+body {
+  background-color: lightgrey;
+}
+.offline{
+ 
+  background-color: darkred;
+  color: white;

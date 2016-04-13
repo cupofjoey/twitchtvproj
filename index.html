@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<div class="container" ng-app="myApp" ng-controller="mainCtrl">
+  <h2>Now showing {{results.length}} Twitch channels.</h3>
+  <div ng-repeat="result in results | orderBy: 'stream'" class="row">
+    <div class="col-sm-12 stream-card" ng-class="result.stream ? 'online' : 'offline'" ng-switch="!!result._links">      
+      <span ng-switch-when="false">{{result.user}}</span>      
+      <a target="_blank" ng-switch-when="true" ng-href="http://www.twitch.tv/{{result.user}}">{{result.user}}:</a>
+      <span ng-if="result.stream">{{result.stream.channel.game}}: {{result.stream.channel.status}}</span>
+      
+      <span ng-if="!result.stream && !result.error">: Offline</span>
+      <span ng-if="result.error">: User not found</span>
+      
+    </div>    
+  </div>
+</div>
